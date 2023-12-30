@@ -22,7 +22,7 @@ body {
     font-size: 36px;
 }
 
-.torchButton {
+.functionButton {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
@@ -34,10 +34,10 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.torchButton:active {
+.functionButton:active {
     background-color: #008000; /* Grün beim Klicken */
 }
 
-.torchButton.active {
+.functionButton.active {
     background-color: #808080; /* Grau nach dem Klicken */
 }

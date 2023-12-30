@@ -1,0 +1,44 @@
+body {
+    background-color: #555555;
+    font-family: Copperplate, Papyrus, monospace;
+    margin: 0;
+}
+
+/* Header Design */
+.header {
+    background-color: blanchedalmond;
+    text-align: center;
+    padding: 20px;
+}
+.row {
+    text-align: center;
+    padding: 16px;
+}
+
+/* Spalten Layout (2) */
+.column {
+    float: left;
+    width: 50%;
+    text-align: center;
+    background-color: #555555;
+}
+.column:hover{
+    color: #D79922;
+}
+
+/* Floatings */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive Design - Anpassen wenn nicht breit genug */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+    .column:hover {
+        width: 100%;
+    }
+}

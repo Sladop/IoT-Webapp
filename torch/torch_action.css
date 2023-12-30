@@ -1,0 +1,40 @@
+body {
+}
+
+.container {
+    text-align: center;
+    align-items: center;
+}
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    border-radius: 15px; /* Runde Ecken */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icon {
+    font-size: 36px;
+}
+
+.custom-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffa500; /* Orange */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-button:active {
+    background-color: #008000; /* Grün beim Klicken */
+}
+
+.custom-button.active {
+    background-color: #808080; /* Grau nach dem Klicken */
+}

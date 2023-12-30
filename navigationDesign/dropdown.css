@@ -1,0 +1,15 @@
+/* Design der Inhalte des Dropdown Menüs */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+/* Design der Inhalte des Dropdown Menüs beim Hovern */
+.dropdown:hover .dropdown-content {
+    display: block;
+}

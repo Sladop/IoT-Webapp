@@ -1,9 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Warte, bis das DOM vollständig geladen ist
 
+
+    const flashlightController = new FlashlightController();
+
     // Funktion für Button 1
     function handleTorchButton(event) {
         console.log('Button 1 wurde geklickt!');
+
+        flashlightController.toggleTorch();
     }
 
     // Funktion für Button 2

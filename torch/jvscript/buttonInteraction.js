@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funktion für Button 2
     function handleStrobButton(event) {
         console.log('Button 2 wurde geklickt!');
+        flashlightController.toggleStrobeTorch();
     }
 
     // Buttons mit der Klasse "functionButton" auswählen und Event-Listener hinzufügen

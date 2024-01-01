@@ -1,8 +1,12 @@
 class FlashlightController {
-    #toggle = false;
+    #toggle;
+    #strobeInterval;
+
     constructor() {
         // Überprüfen, ob die 'torch' API verfügbar ist
         this.isTorchSupported = 'torch' in navigator;
+        this.#strobeInterval = null;
+        this.#toggle = false;
     }
 
     #activateFlashlight() {
@@ -42,4 +46,20 @@ class FlashlightController {
     }
 
 
+    toggleStrobeTorch() {
+        if (this.#strobeInterval) {
+            clearInterval(this.#strobeInterval);
+            this.#strobeInterval = null;
+            this.#deactivateFlashlight();  // Sicherstellen, dass die Taschenlampe ausgeschaltet ist
+        } else {
+            this.#strobeInterval = setInterval(() => {
+                if (this.#toggle) {
+                    this.#deactivateFlashlight();
+                } else {
+                    this.#activateFlashlight();
+                }
+                this.#toggle = !this.#toggle;
+            }, 500); // Wechselt den Zustand alle 0,5 Sekunden
+        }
+    }
 }

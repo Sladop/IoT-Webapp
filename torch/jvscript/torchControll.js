@@ -30,12 +30,27 @@ if (SUPPORTS_MEDIA_DEVICES) {
                 //todo: check if camera has a torch
 
                 //let there be light!
-                const btn = document.querySelector('.torchSwitch');
+                const btn = document.querySelector('#torch');
                 btn.addEventListener('click', function(){
                     track.applyConstraints({
                         advanced: [{torch: true}]
                     });
                 });
+
+                const toggleBtn = document.querySelector('#toggleTorch');
+                toggleBtn.addEventListener('click', function(){
+                    track.applyConstraints({
+                        advanced: [{torch: true}]
+                    });
+                });
+
+                const strobeButton = document.querySelector('#strobeButton');
+                strobeButton.addEventListener('click', function(){
+                    track.applyConstraints({
+                        advanced: [{torch: true}]
+                    });
+                });
+
             });
         });
     });

@@ -48,6 +48,14 @@ if (SUPPORTS_MEDIA_DEVICES) {
                     morseController.strobeTorch();
                 });
 
+                const doMorseCalcBtn = document.querySelector('#doMorseCalcBtn');
+                doMorseCalcBtn.addEventListener('click', function() {
+
+                    morseController.morse(
+                        document.getElementById('morseBtn').value
+                    );
+                })
+
             });
         });
     });

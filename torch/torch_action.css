@@ -4,6 +4,7 @@ body {
 .container {
     text-align: center;
     align-items: center;
+    padding-bottom: 80px;
 }
 .box {
     width: 100px;
@@ -34,6 +35,21 @@ body {
     background-color: #008000; /* Grün beim Klicken */
 }
 
-.functionButton.active {
-    background-color: #808080; /* Grau nach dem Klicken */
+input {
+    margin-top: 10px;
+    width: 80%;
+    padding: 8px;
+}
+.morseCodeBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 24px;
+    background-color: #ffa500; /* Orange */
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.morseCodeBtn:active {
+    background-color: #008000; /* Grün beim Klicken */
 }

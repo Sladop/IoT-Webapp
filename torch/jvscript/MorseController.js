@@ -4,6 +4,20 @@ export class MorseController {
     constructor(track) {
         this.isActive = false;
         this.track = track;
+
+        this.morseCode = {
+            'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..',
+            'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
+            'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
+            'M': '--', 'N': '-.', 'O': '---', 'P': '.--.',
+            'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
+            'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+            'Y': '-.--', 'Z': '--..',
+            '1': '.----', '2': '..---', '3': '...--', '4': '....-',
+            '5': '.....', '6': '-....', '7': '--...', '8': '---..',
+            '9': '----.', '0': '-----',
+        };
+
     }
 
     toggleTorch() {
@@ -65,6 +79,20 @@ export class MorseController {
         // Wieder ein "S" senden
         for (let i = 0; i < 3; i++) {
             await signal(shortSignal);
+        }
+    }
+
+    async morse(text) {
+        for (const char of text.toUpperCase()) {
+            if (this.morseCode[char]) {
+                for (const symbol of this.morseCode[char]) {
+                    await this.toggleTorch();
+                    await new Promise(resolve => setTimeout(resolve, symbol === '.' ? 200 : 600)); // Punkt: 200ms, Strich: 600ms
+                    await this.toggleTorch();
+                    await new Promise(resolve => setTimeout(resolve, 200)); // Pause zwischen Symbolen
+                }
+                await new Promise(resolve => setTimeout(resolve, 600)); // Pause zwischen Buchstaben
+            }
         }
     }
 }

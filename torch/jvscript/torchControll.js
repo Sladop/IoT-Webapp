@@ -29,35 +29,26 @@ if (SUPPORTS_MEDIA_DEVICES) {
             const imageCapture = new ImageCapture(track);
 
             const photoCapabilities = imageCapture.getPhotoCapabilities().then(() => {
-
-                //todo: check if camera has a torch
-
                 //let there be light!
 
                 const morseController = new MorseController(track);
 
                 const btn = document.querySelector('#torch');
                 btn.addEventListener('click', function(){
-                    morseController.toggleTorch();
+                    morseController.sos();
                 });
 
                 const toggleBtn = document.querySelector('#toggleTorch');
                 toggleBtn.addEventListener('click', function(){
-                    morseController.strobeTorch();
+                    morseController.toggleTorch();
                 });
 
                 const strobeButton = document.querySelector('#strobeButton');
                 strobeButton.addEventListener('click', function(){
-                    track.applyConstraints({
-                        advanced: [{torch: true}]
-                    });
+                    morseController.strobeTorch();
                 });
 
             });
         });
     });
-
-    //The light will be on as long the track exists
-
-
 }

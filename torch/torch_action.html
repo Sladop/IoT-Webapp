@@ -31,16 +31,24 @@
 
     <!-- TORCH ACTION HERE -->
     <div class="container">
-        <button id="torchButton" class="functionButton">
+        <button id="toggleTorch" class="functionButton">
             &#128294;
         </button>
 
         <p>Aktiviert die Taschenlampe, sofern auf Ihrem Endgerät verfügbar.</p>
     </div>
 
+    <div class="container">
+        <button id="torch" class="functionButton">
+            &#128295;
+        </button>
+
+        <p>Basic Testmethode</p>
+    </div>
+
     <!-- TORCH ACTION HERE -->
     <div class="container">
-        <button id="strobButton" class="functionButton">
+        <button id="strobeButton" class="functionButton">
             &#128294;
         </button>
 
@@ -54,6 +62,7 @@
     </div>
 
     <!-- Button Interaction JVS -->
-    <script src="jvscript/buttonInteraction.js"></script>
+    <script type="module" src="jvscript/torchControll.js"></script>
+
 </body>
 </html>

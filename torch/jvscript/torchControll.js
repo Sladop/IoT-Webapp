@@ -38,14 +38,12 @@ if (SUPPORTS_MEDIA_DEVICES) {
 
                 const btn = document.querySelector('#torch');
                 btn.addEventListener('click', function(){
-
+                    morseController.toggleTorch();
                 });
 
                 const toggleBtn = document.querySelector('#toggleTorch');
                 toggleBtn.addEventListener('click', function(){
-                    track.applyConstraints({
-                        advanced: [{torch: true}]
-                    });
+                    morseController.strobeTorch();
                 });
 
                 const strobeButton = document.querySelector('#strobeButton');

@@ -1,6 +1,8 @@
-class MorseController {
+export class MorseController {
 
-    constructor() {
+    constructor(track) {
+        this.track = track;
     }
+
 
 }

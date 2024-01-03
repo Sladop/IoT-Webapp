@@ -1,3 +1,5 @@
+import { MorseController } from './MorseController.js';
+
 //Test browser support
 const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
 
@@ -24,14 +26,16 @@ if (SUPPORTS_MEDIA_DEVICES) {
             const track = stream.getVideoTracks()[0];
 
             //Create image capture object and get camera capabilities
-            const imageCapture = new ImageCapture(track)
+            const imageCapture = new ImageCapture(track);
+
             const photoCapabilities = imageCapture.getPhotoCapabilities().then(() => {
 
                 //todo: check if camera has a torch
 
                 //let there be light!
-                
-                const morseController = new MorseController();
+
+                const morseController = new MorseController(track);
+
                 const btn = document.querySelector('#torch');
                 btn.addEventListener('click', function(){
 

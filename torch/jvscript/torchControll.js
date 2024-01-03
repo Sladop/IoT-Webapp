@@ -55,7 +55,6 @@ if (SUPPORTS_MEDIA_DEVICES) {
                         document.getElementById('morseBtn').value
                     );
                 })
-
             });
         });
     });

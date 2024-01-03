@@ -30,11 +30,11 @@ if (SUPPORTS_MEDIA_DEVICES) {
                 //todo: check if camera has a torch
 
                 //let there be light!
+                
+                const morseController = new MorseController();
                 const btn = document.querySelector('#torch');
                 btn.addEventListener('click', function(){
-                    track.applyConstraints({
-                        advanced: [{torch: true}]
-                    });
+
                 });
 
                 const toggleBtn = document.querySelector('#toggleTorch');

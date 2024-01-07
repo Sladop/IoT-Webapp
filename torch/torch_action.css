@@ -1,55 +1,71 @@
+/* Body Design */
 body {
 }
 
+/* Container Design */
 .container {
     text-align: center;
     align-items: center;
     padding-bottom: 80px;
 }
+
+/* Box design */
 .box {
     width: 100px;
     height: 100px;
+
     background-color: #f0f0f0;
-    border-radius: 15px; /* Runde Ecken */
+    border-radius: 15px;
+
     display: flex;
     justify-content: center;
-    align-items: center;
     margin-bottom: 20px;
-    text-align: center;
+
     align-items: center;
+    text-align: center;
 }
 
+/* FuncButtons Design */
 .functionButton {
     margin-top: 20px;
     padding: 10px 20px;
+
     font-size: 36px;
-    background-color: #ffa500; /* Orange */
+    background-color: #ffa500;
     color: #fff;
+
     border: none;
     border-radius: 5px;
+
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
+/* Active Funcbutton Design */
 .functionButton:active {
-    background-color: #008000; /* Grün beim Klicken */
+    background-color: #008000;
 }
 
+/* Input Design */
 input {
     margin-top: 10px;
     width: 80%;
     padding: 8px;
 }
+
+/* Morsecode Button Design */
 .morseCodeBtn {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 24px;
-    background-color: #ffa500; /* Orange */
+    background-color: #ffa500;
     color: #000000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
+/*MorseCodebutton on Active Design */
 .morseCodeBtn:active {
-    background-color: #008000; /* Grün beim Klicken */
+    background-color: #008000;
 }

@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="../navigationDesign/navigation.css">
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="../navigationDesign/dropdown.css">
     <link rel="stylesheet" href="../footer/footer.css">
     <link rel="stylesheet" href="torch_action.css">
+
     <title>Keyboard</title>
 </head>
 <body>
 
-    <!-- Navigationsleiste oben -->
+    <!-- Navigation -->
     <div class="navigation">
         <ul>
             <li><a href="../index.html">HOME</a></li>
             <li><a href="../torch/torch_action.html">FUNKTION</a></li>
+
             <li>
                 <div class="dropdown">
+
                     <button class="dropbtn">KIT</button>
+
                     <div class="dropdown-content">
                         <a href="https://ilias.studium.kit.edu/ilias.php?ref_id=2243219&cmdClass=ilrepositorygui&cmdNode=x1&baseClass=ilrepositorygui">ILIAS</a>
                         <a href="https://ilias.studium.kit.edu/ilias.php?baseClass=ilExerciseHandlerGUI&ref_id=2284206&cmd=showOverview">ABGABE SEITE</a>
@@ -29,7 +36,7 @@
         </ul>
     </div>
 
-    <!-- TORCH ACTION HERE -->
+    <!-- Toggle Torch Button -->
     <div class="container">
         <button id="toggleTorch" class="functionButton">
             &#128294;
@@ -38,6 +45,7 @@
         <p>Aktiviert/Deaktivieren Sie die Taschenlampe!</p>
     </div>
 
+    <!-- SOS Torch send Button -->
     <div class="container">
         <button id="torch" class="functionButton">
             &#x1F4E3;
@@ -46,7 +54,7 @@
         <p>SOS Morsecode auf ihrem Handylicht!</p>
     </div>
 
-    <!-- TORCH ACTION HERE -->
+    <!-- Toggle torch strobe Button -->
     <div class="container">
         <button id="strobeButton" class="functionButton">
             &#9889;
@@ -60,19 +68,18 @@
         <p>Made by: Philipp Ochs | 2284828</p>
     </div>
 
-
     <!-- Morsecode Eingabe -->
     <div>
         <div class="container">
+            <!-- Input Button -->
             <input type="text" id="morseBtn" placeholder="Gib deine Nachricht ein!">
-            <div>
-                <p id="output">
-                    Your last Morsecode: TODO!!!
-                </p>
-            </div>
+
+
+            <!-- Calc & Send Morsecode button -->
             <button id="doMorseCalcBtn" class="morseCodeBtn">&#x1F4E3; Spiele Morsecode ab!</button>
         </div>
     </div>
+
     <!-- Button Interaction JVS -->
     <script type="module" src="jvscript/torchControll.js"></script>
 

@@ -1,20 +1,23 @@
+/*
+    Alle funktionen zur Kamera/Torch Interaktion.
+ */
 import { MorseController } from './MorseController.js';
 
-//Test browser support
+//Testet Browser Support
 const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
 
 if (SUPPORTS_MEDIA_DEVICES) {
-    //Get the environment camera (usually the second one)
+    //Umgebungskamera
     navigator.mediaDevices.enumerateDevices().then(devices => {
 
         const cameras = devices.filter((device) => device.kind === 'videoinput');
 
         if (cameras.length === 0) {
-            throw 'No camera found on this device.';
+            throw 'Keine kamera gefunden!';
         }
         const camera = cameras[cameras.length - 1];
 
-        // Create stream and get video track
+        // Stream & Videotrack
         navigator.mediaDevices.getUserMedia({
             video: {
                 deviceId: camera.deviceId,
@@ -25,29 +28,32 @@ if (SUPPORTS_MEDIA_DEVICES) {
         }).then(stream => {
             const track = stream.getVideoTracks()[0];
 
-            //Create image capture object and get camera capabilities
             const imageCapture = new ImageCapture(track);
 
             const photoCapabilities = imageCapture.getPhotoCapabilities().then(() => {
-                //let there be light!
 
                 const morseController = new MorseController(track);
 
+
+                //SOS Button
                 const btn = document.querySelector('#torch');
                 btn.addEventListener('click', function(){
                     morseController.sos();
                 });
 
+                //Torch Toggle Button
                 const toggleBtn = document.querySelector('#toggleTorch');
                 toggleBtn.addEventListener('click', function(){
                     morseController.toggleTorch();
                 });
 
+                //Strobe Button
                 const strobeButton = document.querySelector('#strobeButton');
                 strobeButton.addEventListener('click', function(){
                     morseController.strobeTorch();
                 });
 
+                //Morsecodeberechnung Button
                 const doMorseCalcBtn = document.querySelector('#doMorseCalcBtn');
                 doMorseCalcBtn.addEventListener('click', function() {
 

@@ -1,10 +1,17 @@
+/*
+    Alle Funktionen zur Morsecode-Berechnung.
+ */
 export class MorseController {
 
+    //Strobe Interval Bool
     #strobeInterval;
+
     constructor(track) {
+
         this.isActive = false;
         this.track = track;
 
+        // Morsecoder Alphabet
         this.morseCode = {
             'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..',
             'E': '.', 'F': '..-.', 'G': '--.', 'H': '....',
@@ -20,6 +27,7 @@ export class MorseController {
 
     }
 
+    // Toggle Button für die Lampe.
     toggleTorch() {
         this.track.applyConstraints({
             advanced: [{torch: !this.isActive}]
@@ -27,6 +35,7 @@ export class MorseController {
         this.isActive = !this.isActive;
     }
 
+    // Stribe Button für die Lampe
     strobeTorch() {
         if (this.#strobeInterval) {
             clearInterval(this.#strobeInterval);
@@ -38,21 +47,23 @@ export class MorseController {
         } else {
             this.#strobeInterval = setInterval(() => {
                 this.toggleTorch();
-            }, 500); // Wechselt den Zustand alle 0,5 Sekunden
+            }, 500);
         }
     }
 
-
+    //Sos Signal senden
     async sos() {
-        const shortSignal = 300; // 300ms für kurze Signale
-        const longSignal = 900;  // 900ms für lange Signale
-        const betweenSignals = 300; // Pause zwischen Signalen
-        const betweenLetters = 900; // Pause zwischen Buchstaben
+        const shortSignal =200; // 200ms für kurze Signale
+        const longSignal = 600;  // 600ms für lange Signale
+        const betweenSignals = 200; // Pause zwischen Signalen
+        const betweenLetters = 600; // Pause zwischen Buchstaben
+
+        //Deaktiviere Lampe falls an.
         if(this.isActive) {
             this.toggleTorch();
         }
 
-        // Definiert eine Methode, um das Signal für eine bestimmte Zeit zu senden
+        // Sendet Signal für eine Zeit
         const signal = async (duration) => {
             this.toggleTorch();
             await new Promise(resolve => setTimeout(resolve, duration));
@@ -60,34 +71,37 @@ export class MorseController {
             await new Promise(resolve => setTimeout(resolve, betweenSignals));
         };
 
-        // Sendet ein "S" in Morsecode: "..."
+        // Sende S
         for (let i = 0; i < 3; i++) {
             await signal(shortSignal);
         }
 
-        // Pause zwischen den Buchstaben
+        // Paus
         await new Promise(resolve => setTimeout(resolve, betweenLetters));
 
-        // Sendet ein "O" in Morsecode: "---"
+        // Sende O
         for (let i = 0; i < 3; i++) {
             await signal(longSignal);
         }
 
-        // Pause zwischen den Buchstaben
+        // Pause
         await new Promise(resolve => setTimeout(resolve, betweenLetters));
 
-        // Wieder ein "S" senden
+        // Sende S
         for (let i = 0; i < 3; i++) {
             await signal(shortSignal);
         }
     }
 
+    //Sendet eigene nachrichten per Morsecode
     async morse(text) {
+
         for (const char of text.toUpperCase()) {
             if (this.morseCode[char]) {
                 for (const symbol of this.morseCode[char]) {
                     await this.toggleTorch();
                     await new Promise(resolve => setTimeout(resolve, symbol === '.' ? 200 : 600)); // Punkt: 200ms, Strich: 600ms
+
                     await this.toggleTorch();
                     await new Promise(resolve => setTimeout(resolve, 200)); // Pause zwischen Symbolen
                 }

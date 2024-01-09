@@ -1,0 +1,62 @@
+.infobox {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.infobox h2 {
+    color: #333;
+}
+
+.infobox a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #0077cc;
+}
+
+.images {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.images img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.article {
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.article h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+    th, td {
+        padding: 4px;
+        font-size: 12px;
+    }
+}
